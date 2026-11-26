@@ -1,0 +1,177 @@
+/* NusaData — visual identity.
+   Deep teal + warm amber on warm paper, serif display type over a clean sans
+   body. One breakpoint: below 720px the nav wraps, stats go two-up, and
+   tables scroll sideways instead of breaking the layout. */
+
+:root {
+  --ink: #1d2b28;
+  --muted: #5c665f;
+  --paper: #f7f4ec;
+  --card: #fffdf7;
+  --line: #e2ddd2;
+  --teal: #0f766e;
+  --teal-dark: #0b5e57;
+  --teal-soft: #d9efec;
+  --amber: #d97706;
+  --amber-soft: #fdf0d8;
+  --serif: Georgia, 'Times New Roman', serif;
+  --sans: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.wrap { max-width: 1020px; margin: 0 auto; padding: 0 20px; }
+
+h1, h2, h3 { font-family: var(--serif); line-height: 1.2; margin: 0 0 0.4em; }
+h1 { font-size: 2.1rem; margin-top: 0.6em; }
+h2 { font-size: 1.45rem; margin-top: 0; }
+p { margin: 0 0 0.9em; }
+
+a { color: var(--teal-dark); }
+a:hover { color: var(--amber); }
+
+.lede { font-size: 1.12rem; color: var(--muted); max-width: 62ch; }
+.muted { color: var(--muted); }
+.source { font-size: 0.85rem; color: var(--muted); margin-top: 0.6em; }
+
+/* Header + nav */
+.site-header {
+  background: var(--ink);
+  color: #f7f4ec;
+  border-bottom: 4px solid var(--amber);
+}
+.header-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 28px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; }
+.brand-mark {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 38px; height: 38px; border-radius: 8px;
+  background: var(--amber); color: #fff;
+  font-family: var(--serif); font-size: 1.5rem; font-weight: 700;
+}
+.brand-text { font-family: var(--serif); font-size: 1.35rem; font-weight: 700; line-height: 1.1; }
+.brand-text em { display: block; font-family: var(--sans); font-style: normal; font-size: 0.72rem; font-weight: 400; color: #c9d4cf; letter-spacing: 0.04em; }
+.site-nav { display: flex; flex-wrap: wrap; gap: 2px 4px; margin-left: auto; }
+.site-nav a {
+  color: #e8ece7; text-decoration: none;
+  padding: 6px 10px; border-radius: 6px; font-size: 0.92rem;
+}
+.site-nav a:hover { background: #2c3f3a; color: #fff; }
+.site-nav a.active { background: var(--teal); color: #fff; font-weight: 600; }
+
+/* Main + footer */
+main.wrap { padding-top: 8px; padding-bottom: 32px; }
+.site-footer { border-top: 1px solid var(--line); padding: 22px 0 34px; color: var(--muted); font-size: 0.9rem; }
+
+/* Stat cards */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 18px 0;
+}
+.stat {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--teal);
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+.stat-value { font-family: var(--serif); font-size: 1.7rem; font-weight: 700; line-height: 1.15; }
+.stat-label { font-weight: 600; margin-top: 2px; }
+.stat-source { font-size: 0.8rem; color: var(--muted); }
+
+/* Panels + cards */
+.panel {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 20px 22px;
+  margin: 18px 0;
+}
+.panel h2 { padding-top: 2px; }
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 12px 0 18px; }
+.card {
+  display: flex; flex-direction: column; gap: 6px;
+  background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+  padding: 16px; text-decoration: none; color: var(--ink);
+}
+.card:hover { border-color: var(--teal); }
+.card-title { font-family: var(--serif); font-size: 1.15rem; font-weight: 700; }
+.card-go { color: var(--teal-dark); font-size: 0.9rem; font-weight: 600; }
+
+.highlights { margin: 0; padding-left: 22px; }
+.highlights li { margin-bottom: 10px; }
+.facts { margin: 0; padding-left: 20px; }
+.facts li { margin-bottom: 10px; }
+
+/* Chart toggles */
+.toggle { display: flex; gap: 6px; margin-bottom: 10px; flex-wrap: wrap; }
+.toggle button {
+  border: 1px solid var(--line); background: #fff; color: var(--ink);
+  border-radius: 999px; padding: 6px 14px; font: inherit; font-size: 0.9rem;
+  cursor: pointer;
+}
+.toggle button:hover { border-color: var(--teal); }
+.toggle button.on { background: var(--teal); border-color: var(--teal); color: #fff; font-weight: 600; }
+
+/* Donut charts */
+.donut-wrap { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+.legend { list-style: none; margin: 0; padding: 0; flex: 1; min-width: 220px; }
+.legend li { display: flex; align-items: center; gap: 8px; padding: 4px 0; border-bottom: 1px solid var(--line); }
+.legend li:last-child { border-bottom: none; }
+.swatch { width: 12px; height: 12px; border-radius: 3px; flex: none; }
+.legend-label { flex: 1; }
+.legend-value { font-weight: 600; }
+
+/* Tables + province controls */
+.table-scroll { overflow-x: auto; }
+.table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+.table th, .table td { padding: 9px 10px; border-bottom: 1px solid var(--line); text-align: left; }
+.table thead th { background: var(--teal-soft); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.03em; }
+.table tbody tr:hover { background: #f2ede0; }
+.table .num { text-align: right; font-variant-numeric: tabular-nums; }
+.table tfoot td { font-weight: 700; background: var(--amber-soft); }
+
+.controls { display: flex; gap: 14px; flex-wrap: wrap; align-items: end; margin-bottom: 6px; }
+.controls label { display: flex; flex-direction: column; gap: 4px; font-size: 0.9rem; font-weight: 600; }
+.controls input, .controls select {
+  font: inherit; font-weight: 400;
+  border: 1px solid var(--line); border-radius: 8px;
+  padding: 8px 10px; background: #fff; color: var(--ink);
+  min-width: 190px;
+}
+.controls input:focus, .controls select:focus { outline: 2px solid var(--teal); outline-offset: 1px; }
+
+.detail { border-left: 4px solid var(--amber); }
+
+/* Phone layout */
+@media (max-width: 720px) {
+  body { font-size: 15px; }
+  h1 { font-size: 1.65rem; }
+  .header-inner { padding-top: 10px; padding-bottom: 10px; }
+  .site-nav { margin-left: 0; }
+  .site-nav a { padding: 5px 8px; font-size: 0.88rem; }
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .stat-value { font-size: 1.4rem; }
+  .cards { grid-template-columns: 1fr; }
+  .panel { padding: 16px; }
+  .donut-wrap { justify-content: center; }
+  .controls input, .controls select { min-width: 0; width: 100%; }
+  .controls label { flex: 1 1 100%; }
+}
